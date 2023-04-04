@@ -1,0 +1,66 @@
+body{
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    /* (ellipse)중심에서 (bottom)아래쪽 부터 시작해서 퍼져나가는것 */
+    overflow: hidden;
+    /* 웹 배경을 넘어가는 한이 있더라도 강제로 가려라 */
+}
+
+.snow{
+    width:12px;
+    height: 12px;
+    background-color: aliceblue;
+    opacity: 0;
+    border-radius: 50%;
+    animation: snow 10s linear infinite;
+    /* 10초동안 linear(균일한 속도) infinite(무한반복) */
+}
+
+.snow:nth-of-type(2n){
+    width: 7px;
+    height: 7px;
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+/* 2의배수에 해당하는 눈은 7초 */
+
+.snow:nth-of-type(2n+1){
+    animation-duration: 8s;
+    animation-delay: 2s;
+}
+
+.snow:nth-of-type(9n){
+    animation-duration: 9s;
+    animation-delay: 3s;
+}
+
+@keyframes snow{
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    20%{
+        opacity: 1;
+        transform: translate(-15px,20vh);
+    }
+    40%{
+        opacity: 1;
+        transform: translate(15px,40vh);
+    }
+    60%{
+        opacity: 1;
+        transform: translate(-15px,60vh);
+    }
+    80%{
+        opacity: 1;
+        transform: translate(0px,80vh);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(100vh);
+
+    }
+    /* 0은 안보이고 1은 잘보임 */
+    /* 0에서 100vh 까지 transform */
+    /* translate는 X,Y 전부 translate Y는 Y 좌표만 */
+}
